@@ -24,3 +24,10 @@ export const Error: Story = {
     placeholder: "Here is a sample placeholder",
   },
 };
+
+export const File: Story = {
+  args: {
+    width: "auto",
+    type: "file",
+  },
+};

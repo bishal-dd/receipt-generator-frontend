@@ -1,3 +1,5 @@
+import Container from "@/src/pages/receipts/Container";
+
 export default function Home() {
-  return <div>Hello</div>;
+  return <Container />;
 }
