@@ -3,6 +3,7 @@ import { Box, Divider, SimpleGrid } from "@chakra-ui/react";
 import HeaderContainer from "./header/HeaderContainer";
 import TransactionContainer from "./transaction/TransactionContainer";
 import DetailTableContainer from "./detailTable/DetailTableContainer";
+import SignatureButton from "./signature/SignatureButton";
 
 const Layout = () => {
   return (
@@ -17,6 +18,9 @@ const Layout = () => {
       <Divider />
       <Box>
         <DetailTableContainer />
+      </Box>
+      <Box>
+        <SignatureButton />
       </Box>
     </SimpleGrid>
   );

@@ -3,7 +3,7 @@ import React, { useCallback } from "react";
 import { atom, useRecoilState } from "recoil";
 
 const key = (str: string) =>
-  `src/components/molecules/table/hooks/useCreateDetailRow.tsx/${str}`;
+  `src/components/molecules/table/hooks/useCreateDetailRow/${str}`;
 
 const state = atom({
   key: key("detailRowState"),
@@ -18,8 +18,8 @@ const useCreateDetailRow = () => {
   }, [detailRowCount, setDetailRowCount]);
 
   const removeDetailRow = useCallback(() => {
-    setDetailRowCount(detailRowCount - 1);
-  }, [detailRowCount, setDetailRowCount]);
+    setDetailRowCount((prevCount) => Math.max(prevCount - 1, 1));
+  }, [setDetailRowCount]);
 
   return {
     detailRowCount,
