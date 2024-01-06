@@ -1,14 +1,9 @@
 import React from "react";
-import {
-  Table,
-  Thead,
-  Tbody,
-  Tr,
-  Th,
-  Td,
-  TableContainer,
-} from "@chakra-ui/react";
-import Row from "./Row";
+import { Table, Thead, Tbody, TableContainer } from "@chakra-ui/react";
+import DetailRow from "./rows/detailRow/DetailRow";
+import TotalAmountRow from "./rows/TotalAmountRow";
+import NetAmountRow from "./rows/NetAmountRow";
+import HeaderRow from "./rows/HeaderRow";
 
 const Layout: React.FC = () => {
   return (
@@ -16,25 +11,12 @@ const Layout: React.FC = () => {
       <TableContainer>
         <Table variant="simple">
           <Thead>
-            <Tr>
-              <Th>Description</Th>
-              <Th>Rate</Th>
-              <Th>Quantity</Th>
-              <Th>Amount</Th>
-            </Tr>
+            <HeaderRow />
           </Thead>
           <Tbody>
-            <Row />
-            <Tr>
-              <Td colSpan={2}></Td>
-              <Td>Total Amount:</Td>
-              <Td></Td>
-            </Tr>
-            <Tr>
-              <Td colSpan={2}></Td>
-              <Td>Net Amount</Td>
-              <Td></Td>
-            </Tr>
+            <DetailRow />
+            <TotalAmountRow />
+            <NetAmountRow />
           </Tbody>
         </Table>
       </TableContainer>

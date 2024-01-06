@@ -1,7 +1,7 @@
 import React from "react";
 import { Tr, Td } from "@chakra-ui/react";
-import TextBox from "../../atoms/textboxes/TextBox";
-const Row = () => {
+import TextBox from "../../../../atoms/textboxes/TextBox";
+const DetailRowItem = () => {
   return (
     <Tr>
       <Td>
@@ -20,4 +20,4 @@ const Row = () => {
   );
 };
 
-export default Row;
+export default DetailRowItem;

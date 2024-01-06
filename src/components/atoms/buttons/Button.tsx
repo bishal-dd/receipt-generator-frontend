@@ -4,14 +4,10 @@ import {
   ButtonProps as ChakraButtonProps,
 } from "@chakra-ui/react";
 
-interface AdditionalProps {
-  buttonLabel: string;
-}
+type Props = ChakraButtonProps;
 
-type Props = ChakraButtonProps & AdditionalProps;
-
-const Button: React.FC<Props> = ({ buttonLabel, ...rest }) => {
-  return <ChakraButton {...rest}>{buttonLabel}</ChakraButton>;
+const Button: React.FC<Props> = ({ ...rest }) => {
+  return <ChakraButton {...rest} />;
 };
 
 export default Button;
