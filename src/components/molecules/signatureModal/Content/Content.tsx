@@ -8,12 +8,14 @@ import {
 import React, { useCallback, useRef } from "react";
 import SignatureCanvas from "react-signature-canvas";
 import ReactSignatureCanvas from "react-signature-canvas";
-import { useSignatureImageURL } from "./useSignatureImageURL";
+import { useSignatureImageURL } from "../signatureImage/useSignatureImageURL";
 import { Box, Divider } from "@chakra-ui/react";
 import Button from "@/src/components/atoms/buttons/Button";
+import { useSignatureModal } from "../useSignatureModal";
 
 const Content = () => {
-  const { imageURL, createImageURL, clearImageURL } = useSignatureImageURL();
+  const { createImageURL } = useSignatureImageURL();
+  const { onClose } = useSignatureModal();
   const signatureRef = useRef<ReactSignatureCanvas>(null);
 
   const clearSignature = useCallback(() => {
@@ -21,11 +23,15 @@ const Content = () => {
   }, []);
 
   const saveSignature = useCallback(() => {
-    const dataURL = signatureRef.current?.toDataURL();
-    if (dataURL) {
-      createImageURL(dataURL);
+    const drawingData = signatureRef.current?.toData();
+    if (drawingData && drawingData.length > 0) {
+      const dataURL = signatureRef.current?.toDataURL();
+      if (dataURL) {
+        createImageURL(dataURL);
+        onClose();
+      }
     }
-  }, [createImageURL]);
+  }, [createImageURL, onClose]);
 
   return (
     <ModalContent>
