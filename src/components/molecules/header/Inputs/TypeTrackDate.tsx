@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Center, SimpleGrid } from "@chakra-ui/react";
+import { Box, Center } from "@chakra-ui/react";
 import TextBox from "@/src/components/atoms/textboxes/TextBox";
 
 interface Props {
@@ -11,13 +11,13 @@ const TypeTrackDate: React.FC<Props> = ({ type }) => {
     <>
       <Box p={2}>
         <Center>
-          <TextBox value={type} textAlign={"center"} />
+          <TextBox defaultValue={type} textAlign={"center"} />
         </Center>
       </Box>
       <Box p={2}>
         <Center>
           <TextBox
-            value={type ? "Receipt" : "Invoice"}
+            defaultValue={type ? "Receipt" : "Invoice"}
             isDisabled
             textAlign={"center"}
           />

@@ -11,7 +11,7 @@ import ImageContainer from "./Inputs/imageUpload/ImageContainer";
 interface Props {
   type: string;
 }
-const Layout: React.FC<Props> = ({ type }) => {
+const Layout: React.FC<Props> = async ({ type }) => {
   return (
     <SimpleGrid columns={3} spacingX="40px">
       <Box>
